@@ -51,4 +51,4 @@ You can get the python script on github tho i cant remember the repo. Just googl
 
 and here's root!
 ![Screenshot_2022-11-10_13_22_36](https://user-images.githubusercontent.com/99975622/201932633-5f2e85bd-cdeb-4fe9-a371-374410f4a2e6.png)
-
+ My socials: @twitter: https://twitter.com/M3tr1c_root @instagram: https://instagram.com/m3tr1c_r00t/
