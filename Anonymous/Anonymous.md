@@ -30,7 +30,25 @@ According to the clean.sh file, i can guess that its being executed by a cronjob
 So i renamed the clean.sh file to clean1.sh and created a new clean.sh file, put a reverse shell one -liner script in it, made it executable and uploaded it to the ftp server using put command.
 
 ![Screenshot_2022-11-10_13_13_53](https://user-images.githubusercontent.com/99975622/201929836-fe302824-9d2c-46f6-8448-726f10ebbe69.png)
-Next, open up a netcat listener on the port you assigned and then wait for a few seconds and you get a reverse shell!
+next up...
 ![Screenshot_2022-11-10_13_14_46](https://user-images.githubusercontent.com/99975622/201930079-74fccd4c-34e8-4c9f-9d49-c4f462097cd2.png)
- There's the C
+ Next, open up a netcat listener on the port you assigned and then wait for a few seconds and you get a reverse shell!
+ ![Screenshot_2022-11-10_13_15_14](https://user-images.githubusercontent.com/99975622/201930411-efd21e3d-6a0c-4b35-8f6b-888778f83aec.png)
+ And we get a reverse shell.
+ I tried to check the crontab and sudo -l priviledges but no luck.
+ And we go and get linpeas....
+ Connected to linpeas using a python http.server and curl command.
+ 
+![Screenshot_2022-11-10_13_17_55](https://user-images.githubusercontent.com/99975622/201930883-9e6e20da-beb3-435c-b643-58b5fdf11cc8.png)
+
+And i get the CVE-2021-4034 which is an exploit for pwnkit.
+I used a python script to gain access after uploading it to the remote machine using python http server, executed it and i became root.
+![Screenshot_2022-11-10_13_18_25](https://user-images.githubusercontent.com/99975622/201932268-042b7bde-7d21-483a-bd46-da9b6455c1de.png)
+
+You can get the python script on github tho i cant remember the repo. Just google "pwnkit python script github" and youll find it .
+![Screenshot_2022-11-10_13_20_01](https://user-images.githubusercontent.com/99975622/201932322-8b08f385-085f-43f6-8317-8122ebcec55b.png)
+
+
+and here's root!
+![Screenshot_2022-11-10_13_22_36](https://user-images.githubusercontent.com/99975622/201932633-5f2e85bd-cdeb-4fe9-a371-374410f4a2e6.png)
 
