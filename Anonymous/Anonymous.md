@@ -14,12 +14,23 @@ So we can use the username ftp/ anonmyous and any password it doesnt matter and 
 I downloaded all the files in the script folder and go through them.
 
 ![Screenshot_2022-11-10_12_55_09](https://user-images.githubusercontent.com/99975622/201925728-3e0c6d56-3067-4bbd-bf61-d056f9cbf31d.png)
-found nothing interesting to me so i went to the smb 445 and used enum4linux to get info on the service.
+We're gonna use ftp to get out reverse shell and gain priviledges but i wanna go through smb and basically how we can use it as a possible vulnerability.So we're gonna use enum4linux to get info on the service.
 
 ![Screenshot_2022-11-10_13_01_03](https://user-images.githubusercontent.com/99975622/201925976-689e032b-5561-4640-b0a3-2e9a888bdb1d.png)
- adn we found a pics share which we might be able to access and view its contents usign smbclient.
+ adn we find a pics share which we might be able to access and view its contents using smbclient.
  ![Screenshot_2022-11-10_13_01_06](https://user-images.githubusercontent.com/99975622/201926190-658ba806-4a8b-4047-9f4f-7950b479bf50.png)
 
 Well, we find some of pics. Lets get them and see if we can find anything interesting.
 ![Screenshot_2022-11-10_13_05_36](https://user-images.githubusercontent.com/99975622/201926335-b8c1682a-71b9-4b96-9e46-f80b7e318009.png)
-Screenshot_2022-11-10_12_53_51.png
+You can analyse files that you get here and find something that can help you.
+
+Lets go back to getting a reverse shell.
+According to the clean.sh file, i can guess that its being executed by a cronjob to be regularly checking for files in the /tmp/ directory and delete it.
+\n
+So i renamed the clean.sh file to clean1.sh and created a new clean.sh file, put a reverse shell one -liner script in it, made it executable and uploaded it to the ftp server using put command.
+
+![Screenshot_2022-11-10_13_13_53](https://user-images.githubusercontent.com/99975622/201929836-fe302824-9d2c-46f6-8448-726f10ebbe69.png)
+Next, open up a netcat listener on the port you assigned and then wait for a few seconds and you get a reverse shell!
+![Screenshot_2022-11-10_13_14_46](https://user-images.githubusercontent.com/99975622/201930079-74fccd4c-34e8-4c9f-9d49-c4f462097cd2.png)
+ There's the C
+
