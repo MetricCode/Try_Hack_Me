@@ -17,7 +17,7 @@ I downloaded all the files in the script folder and go through them.
 We're gonna use ftp to get out reverse shell and gain priviledges but i wanna go through smb and basically how we can use it as a possible vulnerability.So we're gonna use enum4linux to get info on the service.
 
 ![Screenshot_2022-11-10_13_01_03](https://user-images.githubusercontent.com/99975622/201925976-689e032b-5561-4640-b0a3-2e9a888bdb1d.png)
- adn we find a pics share which we might be able to access and view its contents using smbclient.
+ and we find a pics share which we might be able to access and view its contents using smbclient.
  ![Screenshot_2022-11-10_13_01_06](https://user-images.githubusercontent.com/99975622/201926190-658ba806-4a8b-4047-9f4f-7950b479bf50.png)
 
 Well, we find some of pics. Lets get them and see if we can find anything interesting.
